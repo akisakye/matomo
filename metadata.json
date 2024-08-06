@@ -10,19 +10,19 @@
   "dependencies": [
     {
       "name": "puppet/archive",
-      "version_requirement": "=> 7.1.0"
+      "version_requirement": ">= 7.1.0 < 7.1.1"
     },
     {
       "name": "puppet/nginx",
-      "version_requirement": "=> 6.0.0"
+      "version_requirement": ">= 6.0.0 < 6.0.1"
     },
     {
       "name": "puppet/php",
-      "version_requirement": "=> 10.2.0"
+      "version_requirement": ">= 10.2.0 < 10.2.1"
     },
     {
       "name": "puppetlabs/mysql",
-      "version_requirement": "=> 16.0.0"
+      "version_requirement": ">= 16.0.0 < 16.0.1"
     }
   ],
   "operatingsystem_support": [
