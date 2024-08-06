@@ -114,7 +114,7 @@ file { '/tmp/fixperms.sh':
 } else {
 
 class { '::php::globals':
-  php_version => '7.0',
+  php_version => '8.1',
 }
 -> class { '::php':
       manage_repos => true,
