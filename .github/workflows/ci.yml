@@ -17,6 +17,13 @@ jobs:
     strategy:
       matrix:
         ruby-version: [2.5, 2.6, 2.7]
+        include:
+          - ruby-version: 2.5
+            bundler-version: 2.3.27
+          - ruby-version: 2.6
+            bundler-version: 2.4.22
+          - ruby-version: 2.7
+            bundler-version: 2.4.22
 
     steps:
     - name: Checkout code
@@ -29,8 +36,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        gem install bundler
-        bundle install --jobs=3 --retry=3
+        gem install bundler -v ${{ matrix.bundler-version }}
+        bundle _${{ matrix.bundler-version }}_ install --jobs=3 --retry=3
 
     - name: Lint Puppet manifests
       run: bundle exec rake lint
@@ -53,12 +60,12 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.5
+        ruby-version: 2.7
 
     - name: Install dependencies
       run: |
-        gem install bundler
-        bundle install --jobs=3 --retry=3
+        gem install bundler -v 2.4.22
+        bundle _2.4.22_ install --jobs=3 --retry=3
 
     - name: Deploy to Puppet Forge
       env:
