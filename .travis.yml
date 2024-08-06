@@ -1,5 +1,5 @@
 sudo: false
-dist: trusty
+dist: jammy
 language: ruby
 cache: bundler
 before_install:
@@ -11,10 +11,10 @@ script:
 - bundle exec rake $CHECK
 bundler_args: --without system_tests
 rvm:
-- 2.5.1
+- 3.3.4
 env:
   global:
-  - BEAKER_PUPPET_COLLECTION=puppet6 PUPPET_GEM_VERSION="~> 6.0"
+  - BEAKER_PUPPET_COLLECTION=puppet8 PUPPET_GEM_VERSION="~> 8.0"
 matrix:
   fast_finish: true
   include:
