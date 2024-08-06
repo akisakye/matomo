@@ -1,51 +1,62 @@
+<!-- markdownlint-disable MD024 -->
 # Changelog
 
 All notable changes to this project will be documented in this file.
 
-## Release 0.1.9
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-**Features**
-Added support for newer versions of puppet
-Minor bug elimination
+## [v0.2.2](https://github.com/akisakye/matomo/tree/v0.2.2) - 2024-08-06
 
-**Bugfixes**
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.2.1...v0.2.2)
 
-**Known Issues**
+## [v0.2.1](https://github.com/akisakye/matomo/tree/v0.2.1) - 2024-08-06
 
-## Release 0.1.8
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.2.0...v0.2.1)
 
-**Features**
-Added option to add ssl redirect for nginx
-Added option to control ACL access to the system 
+### Other
 
-**Bugfixes**
+- V0.1.9 [#2](https://github.com/akisakye/matomo/pull/2) ([akisakye](https://github.com/akisakye))
 
-**Known Issues**
+## [v0.2.0](https://github.com/akisakye/matomo/tree/v0.2.0) - 2019-02-22
 
-## Release 0.1.7
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.9...v0.2.0)
 
-**Features**
+## [v0.1.9](https://github.com/akisakye/matomo/tree/v0.1.9) - 2019-02-22
 
-**Bugfixes**
-Added selinux mod to allow webserver to run with right perms
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.8...v0.1.9)
 
-**Known Issues**
+## [v0.1.8](https://github.com/akisakye/matomo/tree/v0.1.8) - 2019-02-14
 
-## Release 0.1.6
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.7...v0.1.8)
 
-**Features**
+## [v0.1.7](https://github.com/akisakye/matomo/tree/v0.1.7) - 2019-02-12
 
-**Bugfixes**
-Corrected error that prevented proper nginx configuration
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.6...v0.1.7)
 
-**Known Issues**
+## [v0.1.6](https://github.com/akisakye/matomo/tree/v0.1.6) - 2019-02-06
 
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.5...v0.1.6)
 
+## [v0.1.5](https://github.com/akisakye/matomo/tree/v0.1.5) - 2019-02-05
 
-## Release 0.1.0
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.4...v0.1.5)
 
-**Features**
+## [v0.1.4](https://github.com/akisakye/matomo/tree/v0.1.4) - 2019-02-05
 
-**Bugfixes**
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.3...v0.1.4)
 
-**Known Issues**
+## [v0.1.3](https://github.com/akisakye/matomo/tree/v0.1.3) - 2019-02-05
+
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.2...v0.1.3)
+
+## [v0.1.2](https://github.com/akisakye/matomo/tree/v0.1.2) - 2019-02-03
+
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.1...v0.1.2)
+
+## [v0.1.1](https://github.com/akisakye/matomo/tree/v0.1.1) - 2019-02-03
+
+[Full Changelog](https://github.com/akisakye/matomo/compare/v0.1.0...v0.1.1)
+
+## [v0.1.0](https://github.com/akisakye/matomo/tree/v0.1.0) - 2019-02-03
+
+[Full Changelog](https://github.com/akisakye/matomo/compare/cafd55db837b7e87c43df27331e373d1a46773be...v0.1.0)
