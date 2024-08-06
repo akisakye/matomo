@@ -49,29 +49,47 @@ jobs:
       run: bundle exec rake spec
 
   deploy:
-    runs-on: ubuntu-latest
+    name: "Release"
     needs: test
+    runs-on: "ubuntu-latest"
     if: startsWith(github.ref, 'refs/tags/')
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+        with:
+          ref: "${{ github.ref }}"
+          clean: true
+          fetch-depth: 0
 
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7
+      - name: "Get version"
+        id: "get_version"
+        run: |
+          echo "version=$(jq --raw-output .version metadata.json)" >> $GITHUB_OUTPUT
 
-    - name: Install dependencies
-      run: |
-        gem install bundler -v 2.4.22
-        bundle _2.4.22_ install --jobs=3 --retry=3
+      - name: "PDK build"
+        uses: "docker://puppet/pdk:3.0.0.0"
+        with:
+          args: "build"
 
-    - name: Deploy to Puppet Forge
-      env:
-        PUPPETFORGE_API_KEY: ${{ secrets.PUPPETFORGE_API_KEY }}
-      run: |
-        bundle exec rake release
+      - name: "Generate release notes"
+        run: |
+          export GH_HOST=github.com
+          gh extension install chelnak/gh-changelog
+          gh changelog get --latest > OUTPUT.md
+        env:
+          GH_TOKEN: ${{ secrets.PUB_TOKEN }}
 
-    - name: Notify of deployment success
-      run: echo "Deployment to Puppet Forge successful."
+      - name: "Create release"
+        run: |
+          gh release create v${{ steps.get_version.outputs.version }} --title v${{ steps.get_version.outputs.version }} -F OUTPUT.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUB_TOKEN }}
+
+      - name: "Publish module"
+        uses: "docker://puppet/pdk:3.0.0.0"
+        with:
+          args: 'release publish --forge-token ${{ secrets.PUPPETFORGE_API_KEY }} --force'
+
+      - name: Notify of deployment success
+        run: echo "Deployment to Puppet Forge successful."
